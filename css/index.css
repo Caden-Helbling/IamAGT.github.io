@@ -1,0 +1,124 @@
+/**
+sass --watch stylesheets:css
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "EB Garamond", serif;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+.title .left {
+  flex-basis: 40%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: color-burn;
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.title .left img {
+  width: auto;
+  height: 450px;
+}
+.title .right {
+  flex-basis: 60%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.title .right p {
+  color: #fff;
+  font-size: 24px;
+  margin-left: 16px;
+}
+.title .right h1 {
+  font-family: "Pacifico", cursive;
+  margin-left: 16px;
+  padding: 0;
+  color: #558b2f;
+  font-weight: 500;
+  font-size: 72px;
+}
+.title .right .about {
+  margin-left: 16px;
+  font-family: "EB Garamond", serif;
+  font-size: 18px;
+  color: white;
+}
+.title .right .links {
+  margin-left: 16px;
+  margin-top: 64px;
+  display: flex;
+  flex-direction: row;
+}
+.title .right .links a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  margin: 8px 0 32px 0;
+}
+.title .right .links a i {
+  font-size: 24px;
+  margin: 0 64px 0 0;
+  color: #FF9800;
+}
+.title .right .links a i:hover {
+  color: #D32F2F;
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    flex-direction: column;
+  }
+  .title .left {
+    display: none;
+    justify-content: flex-start;
+    flex-basis: 20%;
+  }
+  .title .left img {
+    height: 125px;
+  }
+  .title .right {
+    flex-basis: 80%;
+  }
+  .title .right h1 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .title {
+    flex-direction: column;
+  }
+  .title .left {
+    display: none;
+    justify-content: flex-start;
+  }
+  .title .left img {
+    height: 125px;
+  }
+  .title .right {
+    flex-basis: 100%;
+  }
+  .title .right h1 {
+    font-size: 32px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
