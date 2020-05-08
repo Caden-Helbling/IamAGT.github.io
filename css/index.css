@@ -1,6 +1,11 @@
+@charset "UTF-8";
 /**
 sass --watch stylesheets:css
 */
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,12 +14,39 @@ body {
   margin: 0;
   padding: 0;
   font-family: "EB Garamond", serif;
+  background-color: #f1f2f6;
 }
 
+@keyframes shaker {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .title {
+  position: relative;
   display: flex;
   flex-direction: row;
   height: 100vh;
+}
+.title a.arrow {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  animation: shaker 1s infinite;
+}
+.title a.arrow i {
+  font-size: 64px;
+}
+.title a.arrow:hover {
+  color: black;
 }
 .title .left {
   flex-basis: 40%;
@@ -22,7 +54,6 @@ body {
   background-size: cover;
   background-position: center;
   background-blend-mode: color-burn;
-  background-color: black;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -34,19 +65,18 @@ body {
 .title .right {
   flex-basis: 60%;
   height: 100%;
-  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
 .title .right p {
-  color: #fff;
+  color: rgba(0, 0, 0, 0.7);
   font-size: 24px;
   margin-left: 16px;
 }
 .title .right h1 {
-  font-family: "Pacifico", cursive;
+  font-family: "Fredericka the Great", cursive;
   margin-left: 16px;
   padding: 0;
   color: #558b2f;
@@ -57,35 +87,205 @@ body {
   margin-left: 16px;
   font-family: "EB Garamond", serif;
   font-size: 18px;
-  color: white;
+  color: rgba(0, 0, 0, 0.7);
 }
-.title .right .links {
-  margin-left: 16px;
-  margin-top: 64px;
+
+#gallery {
+  background-color: #e8e9f0;
+  font-family: "EB Garamond", serif;
+  height: auto;
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0 48px 0;
 }
-.title .right .links a {
+#gallery h1 {
+  font-weight: 500;
+  font-size: 32px;
+  color: #558b2f;
+  margin: 64px 0;
+}
+#gallery .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 80%;
+}
+#gallery .gallery .thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 24px 0;
+}
+#gallery .gallery .thumbnail img {
+  width: 100%;
+  height: 256px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#gallery .gallery .thumbnail.video {
+  position: relative;
+}
+#gallery .gallery .thumbnail.video img {
+  filter: brightness(70%);
+}
+#gallery .gallery .thumbnail.video::after {
+  content: "";
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-size: 32px;
+  color: rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+#gallery .gallery .thumbnail:hover img {
+  transform: scale(1.1, 1.1);
+}
+#gallery .gallery .thumbnail:hover.video img {
+  filter: brightness(100%);
+}
+#gallery .gallery .thumbnail:hover.video::after {
+  color: black;
+  font-size: 36px;
+}
+
+#preview-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+#preview-modal .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 70%;
+  height: auto;
+  max-height: 80%;
+}
+#preview-modal .content video {
+  width: 100%;
+  height: 100%;
+}
+#preview-modal .content img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#preview-modal button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.7;
+  font-size: 72px;
+}
+#preview-modal button:hover {
+  opacity: 1;
+}
+#preview-modal button.left {
+  position: absolute;
+  top: 50%;
+  left: 128px;
+}
+#preview-modal button.right {
+  position: absolute;
+  top: 50%;
+  right: 160px;
+}
+#preview-modal.active {
+  display: flex;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+#contact h1 {
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+  font-size: 32px;
+  color: #558b2f;
+  margin: 0 0 164px 0;
+}
+#contact .contact {
+  display: flex;
+  flex-direction: column;
+}
+#contact .contact a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+  font-size: 24px;
+}
+#contact .contact a i {
+  font-size: 24px;
+  margin: 14px 64px;
+  color: rgba(0, 0, 0, 0.7);
+}
+#contact .contact a i:hover {
+  color: black;
+}
+#contact .links {
+  margin-left: 16px;
+  margin-top: 164px;
+  width: 20%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+#contact .links a {
+  display: flex;
   text-decoration: none;
-  color: #fff;
+  color: rgba(0, 0, 0, 0.7);
   font-size: 24px;
   margin: 8px 0 32px 0;
 }
-.title .right .links a i {
+#contact .links a i {
   font-size: 24px;
-  margin: 0 64px 0 0;
-  color: #FF9800;
+  color: rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
 }
-.title .right .links a i:hover {
-  color: #D32F2F;
+#contact .links a i:hover {
+  transform: scale(1.3, 1.3);
+}
+#contact .links a i:hover.fa-youtube {
+  color: #f00;
+}
+#contact .links a i:hover.fa-linkedin-in {
+  color: #2867B2;
+}
+#contact .links a i:hover.fa-facebook-f {
+  color: #4267B2;
 }
 
 @media screen and (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .title {
     flex-direction: column;
+  }
+  .title a.arrow i {
+    font-size: 24px;
   }
   .title .left {
     display: none;
@@ -101,23 +301,30 @@ body {
   .title .right h1 {
     font-size: 32px;
   }
-}
-@media screen and (max-width: 768px) {
-  .title {
-    flex-direction: column;
+
+  #gallery h1 {
+    font-size: 18px;
   }
-  .title .left {
-    display: none;
-    justify-content: flex-start;
+  #gallery .gallery .thumbnail img {
+    height: 128px;
   }
-  .title .left img {
-    height: 125px;
+
+  #contact h1 {
+    font-size: 18px;
   }
-  .title .right {
-    flex-basis: 100%;
+  #contact .contact a {
+    font-size: 16px;
   }
-  .title .right h1 {
-    font-size: 32px;
+  #contact .contact a i {
+    font-size: 16px;
+    margin: 4px 4px;
+  }
+  #contact .links a {
+    font-size: 16px;
+  }
+  #contact .links a i {
+    font-size: 16px;
+    margin: 4px 4px;
   }
 }
 

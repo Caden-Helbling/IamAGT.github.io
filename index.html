@@ -10,12 +10,24 @@
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://kit.fontawesome.com/5f6ad0d967.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
+  <div id="preview-modal">
+        <div class="content">
+            <video controls>
+                Your browser does not support the video tag.
+            </video>
+
+            <img >
+        </div>
+
+        <button class="left"><i class="fas fa-chevron-left"></i></button>
+        <button class="right"><i class="fas fa-chevron-right"></i></button>
+    </div>
     <section class="title">
+      <a class="arrow" href="#gallery"> <i class="arrow ion-ios-arrow-down"> </i> </a>
         <div class="left">
             <img src="img/me.png" />
         </div>
@@ -28,20 +40,54 @@
                 Caden Helbling
             </h1>
             <p class="about">
-                I'm an Engineer at Holder Construction. <br>
-                I'm a Georgia Tech. <br>
-                I'm based in Huntsville, Alabama. <br>
-                I'm from Acworth, Georgia. <br>
-                I'm into Drone photography. I fly a DJI Mavic Pro. <br>
+                Full-time Engineer <br>
+                Part-time Drone Photo/Video-grapher
             </p>
-
-            <div class="links">
-                <a target="_blank" href="mailto:caden.helbling@gmail.com"><i class="far fa-envelope"></i></a>
-                <a target="_blank" href="tel:678-447-5139"><i class="fas fa-phone-alt"></i></a>
-                <a target="_blank" href="https://www.linkedin.com/in/caden-helbling-078777108/"><i class="fab fa-linkedin-in"></i></a>
-                <a target="_blank" href="https://www.youtube.com/channel/UC4gUrKb27V7KU9f5Jt4fKFw"><i class="fab fa-youtube"></i></a>
-            </div>
         </div>
+    </section>
+    <section id="gallery">
+      <h1> Check out some of my favorite photos/videos </h1>
+      <div class="gallery">
+        <div class="thumbnail video" data-url="/img/v-1.mpeg">
+          <img src="/img/v-1.png"></img>
+        </div>
+        <div class="thumbnail video" data-url="/img/v-2.MOV">
+          <img src="/img/v-2.png"></img>
+        </div>
+        <div class="thumbnail photo">
+          <img src="/img/i-1.jpg"></img>
+        </div>
+        <div class="thumbnail photo">
+          <img src="/img/i-2.jpg"></img>
+        </div>
+        <div class="thumbnail photo">
+          <img src="/img/i-3.jpg"></img>
+        </div>
+        <div class="thumbnail photo">
+          <img src="/img/i-4.jpg"></img>
+        </div>
+        <div class="thumbnail photo">
+          <img src="/img/i-5.jpg"></img>
+        </div>
+        <div class="thumbnail photo">
+          <img src="/img/i-6.jpg"></img>
+        </div>
+        <div class="thumbnail photo">
+          <img src="/img/i-7.jpg"></img>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <h1>Reach me</h1>
+      <div class="contact">
+        <a target="_blank" href="mailto:caden.helbling@gmail.com"><i class="far fa-envelope"></i><span> caden.helbling@gmail.com </span></a>
+        <a target="_blank" href="tel:678-447-5139"><i class="fas fa-phone-alt"></i> <span> (678) 447-5139 </span></a>
+      </div>
+      <div class="links">
+        <a target="_blank" href="https://www.youtube.com/channel/UC4gUrKb27V7KU9f5Jt4fKFw"><i class="fab fa-youtube"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/caden-helbling-078777108/"><i class="fab fa-linkedin-in"></i></a>
+        <a target="_blank" href="https://www.facebook.com/caden.helbling"><i class="fab fa-facebook-f"></i></a>
+      </div>
     </section>
 </body>
 </html>
